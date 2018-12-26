@@ -59,7 +59,7 @@ $(function() {
          */
 
         it('ensures the menu element is hidden by default', function() {
-            expect(document.body.className).toContain('menu-hidden')
+            expect(document.body.classList).toContain('menu-hidden')
         });
 
         /* 
@@ -72,9 +72,9 @@ $(function() {
         it('ensures menu changes visibility when menu icon is clicked', function() {
             const menuIconElement = document.body.querySelector(".menu-icon-link");
             menuIconElement.click();
-            expect(document.body.className).not.toContain('menu-hidden');
+            expect(document.body.classList).not.toContain('menu-hidden');
             menuIconElement.click();
-            expect(document.body.className).toContain('menu-hidden')
+            expect(document.body.classList).toContain('menu-hidden')
         });
     });
 
@@ -93,8 +93,8 @@ $(function() {
         });
 
         it('ensures when loadFeed function called - at least one entry', function() {
-            const feed = document.querySelector('.feed .entry').children.length;
-            expect(feed).toBeGreaterThan(0);
+            const feedLength = document.querySelector('.feed').getElementsByClassName('entry').length;
+            expect(feedLength).toBeGreaterThan(0);
         });
     });
 
